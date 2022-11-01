@@ -6,12 +6,12 @@ To implement the given logic function using NAND and NOR gates and to verify its
 
 F=((C'.B.A)'(D'.C.A)'(C.B'.A)')' using NAND gate
 F=(((C.B'.A)+(D.C'.A)+(C.B'.A))')' using NOR gate
-## Equipments Required:
+## EQUIPMENTS REQUIRED:
 ## Hardware – PCs, Cyclone II , USB flasher
 ## Software – Quartus prime
 
 
-## Theory
+## THEORY:
 Logic gates are electronic circuits which perform logical functions on one or more inputs to produce one output. 
 
 ## Using NAND gates
@@ -26,18 +26,55 @@ NOR gate is actually a combination of two logic gates: OR gate followed by NOT g
 
 F=(((C.B'.A)+(D.C'.A)+(C.B'.A))')'
 
-## Logic Diagram
-## Procedure
-## Program:
-/*
-Program to implement the given logic function using NAND and NOR gates and to verify its operations in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
-## RTL realization
 
+## PROCEDURE
+## Program:
+Program to implement the given logic function using NAND and NOR gates and to verify its operations in quartus using Verilog programming.
+
+Developed by : Shrruthilaya G
+
+Register number : 212221230097
+
+NAND gate:
+```
+module shru(a,b,c,d,f);
+input a,b,c,d;
+output f;
+wire p,q,r;
+assign p=(~c & b & a);
+assign q=(~d & c & ~a);
+assign r=(c & ~b & a);
+assign f=(~(~p & ~q & ~r));
+endmodule
+```
+NOR gate:
+```
+module shru(a,b,c,d,f);
+input a,b,c,d;
+output f;
+wire p,q,r;
+assign p=( c & ~b & a);
+assign q=( d & ~c & a);
+assign r=( c & ~b & a);
+assign f=(~(~( p | q | r)));
+endmodule
+```
 ## Output:
-## RTL
-## Timing Diagram
-## Result:
+## NAND gate
+### RTL realization
+![](logicgate1.PNG)
+
+### Timing Diagram
+![](timingdiagram1.PNG)
+### Truth table
+![](truthtable1.png)
+## NOR gate
+### RTL realization
+![](logicgate2.PNG)
+
+### Timing Diagram
+![](timingdiagram2.PNG)
+### Truth table
+![](truthtable2.png)
+## RESULT:
 Thus the given logic functions are implemented using NAND and NOR gates and their operations are verified using Verilog programming.
